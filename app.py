@@ -3551,14 +3551,6 @@ else:
 os.makedirs(CAPTURAS_FOLDER, exist_ok=True)
 os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads', 'capturas'), exist_ok=True)
 
-@app.route('/uploads/capturas/<filename>')
-def serve_captura(filename):
-    try:
-        return send_from_directory(CAPTURAS_FOLDER, filename)
-    except Exception as e:
-        print(f"Error sirviendo captura {filename}: {str(e)}")
-        abort(404)
-
 # --- Utilidad para corregir estados de facturas ---
 def actualizar_estados_facturas():
     facturas = cargar_datos(ARCHIVO_FACTURAS)
